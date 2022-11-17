@@ -11,7 +11,6 @@ namespace ClassFiles.Classes
     {
         #region ----- Fields ------
 
-        private string line;
         private int duplicatenumber;
         private List<int> lineNumber;
         private List<string> fileName;
@@ -20,11 +19,6 @@ namespace ClassFiles.Classes
 
         #region ------ Properties ------
 
-        public string Line
-        {
-            get { return line; }
-            set { line = value; }
-        }
         public int Duplicatenumber
         {
             get { return duplicatenumber;}
@@ -49,11 +43,10 @@ namespace ClassFiles.Classes
 
         #region ------ Constructor ------
 
-        public Output(string line, List<string> fileName, int duplicatenumber, List<int> lineNumbers)
+        public Output(List<string> fileName, int duplicatenumber, List<int> lineNumbers)
         {
             this.LineNumber = lineNumbers;
             this.FileName = fileName;
-            this.Line = line;
             this.Duplicatenumber = duplicatenumber;
         }
 

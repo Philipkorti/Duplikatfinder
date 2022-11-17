@@ -12,11 +12,7 @@ namespace ClassFiles
     {
         #region ------ Fields ------
 
-        private string fileName;
-
-        private string filePath;
-
-        private string fileTyp;
+        private FileInfo fileInfo;
 
         private List<Text> fileText;
 
@@ -24,38 +20,24 @@ namespace ClassFiles
 
         #region ------ Properties-----
 
-        public string FileName
-        {
-            get { return fileName; }
-            set { fileName = value; }
-        }
-
-        public string FilePath
-        {
-            get { return filePath; }
-            set { filePath = value; }
-        }
-
-        public string FileTyp
-        {
-            get { return fileTyp; }
-            set { fileTyp = value;}
-        }
-
         public List<Text> FileText
         {
             get { return fileText; }
             set { fileText = value; }
         }
+        public FileInfo FileInfo
+        {
+            get { return fileInfo; }
+            set { fileInfo = value; }
+        }
 
         #endregion
-
-        public FilesRead(string fileName, string filePath, string fileTyp, List<Text> filetext)
+        
+        public FilesRead(FileInfo fileInfo ,List<Text> filetext)
         {
-            this.FileName = fileName;
-            this.FilePath = filePath;
-            this.FileTyp = fileTyp;
+            
             this.FileText = filetext;
+            this.FileInfo = fileInfo;
         }
     }
 }
