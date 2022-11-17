@@ -13,17 +13,17 @@ namespace ClassFiles
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder";
+            string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\";
             List<string> fileList = new List<string>();
             List<FilesRead> files = new List<FilesRead>();
             List<Text> lines = new List<Text>();
             _ = new List<string>();
 
-            string ignorefile = IgnoreFileCreate();
+            string ignorefile = IgnoreFileCreate(currentProjectPath);
 
             try
             {
-                fileList.AddRange(Directory.GetFiles(path, "*.cs", SearchOption.AllDirectories));
+                fileList.AddRange(Directory.GetFiles(currentProjectPath, "*.cs", SearchOption.AllDirectories));
             }
             catch(Exception ex)
             {
@@ -55,14 +55,14 @@ namespace ClassFiles
                 }
 
                 FileInfo fileInfo = new FileInfo(fileList[i]);
-                files.Add(new FilesRead(fileInfo.Name, fileInfo.FullName, fileInfo.Extension, lines.ToList()));
+                //files.Add(new FilesRead(fileInfo.Name, fileInfo.FullName, fileInfo.Extension, lines.ToList()));
             }
             Console.ReadLine();
         }
 
-        static string IgnoreFileCreate()
+        static string IgnoreFileCreate(string sCurrentDirectory)
         {
-            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            
             string ignorefile = Path.Combine(sCurrentDirectory, @"..\..\..\ignore.txt");
             string ignorefilePath = Path.GetFullPath(ignorefile);
 
