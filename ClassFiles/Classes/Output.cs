@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,46 +11,50 @@ namespace ClassFiles.Classes
     {
         #region ----- Fields ------
 
-        private string text;
-
-        private string fileName;
-
-        public int duplicateCount;
+        private string line;
+        private int duplicatenumber;
+        private List<int> lineNumber;
+        private List<string> fileName;
 
         #endregion
 
         #region ------ Properties ------
 
-        public string Text
+        public string Line
         {
-            get { return text; }
-
-            set { text = value; }
+            get { return line; }
+            set { line = value; }
+        }
+        public int Duplicatenumber
+        {
+            get { return duplicatenumber;}
+            set { duplicatenumber = value;}
         }
 
-        public string FileName
+        public List<int> LineNumber
+        {
+            get { return lineNumber; }
+            set { lineNumber = value; }
+        }
+
+        public List<string> FileName
         {
             get { return fileName; }
 
             set { fileName = value; }
         }
 
-        public int DuplicateCount
-        {
-            get { return duplicateCount; }
-
-            set { duplicateCount = value; }
-        }
 
         #endregion
 
         #region ------ Constructor ------
 
-        public Output(string text, string fileName, int duplicateCount)
+        public Output(string line, List<string> fileName, int duplicatenumber, List<int> lineNumbers)
         {
-            this.Text = text;
+            this.LineNumber = lineNumbers;
             this.FileName = fileName;
-            this.DuplicateCount = duplicateCount;
+            this.Line = line;
+            this.Duplicatenumber = duplicatenumber;
         }
 
         #endregion
