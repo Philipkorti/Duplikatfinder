@@ -1,0 +1,12 @@
+// * = removes line if this symbol is the only thing in the line
+*{
+*}
+
+// removes the line if the line contains this
+//
+using file
+using system
+namespace
+program
+main
+console.read
