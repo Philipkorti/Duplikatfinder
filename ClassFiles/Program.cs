@@ -55,7 +55,8 @@ namespace ClassFiles
                 }
 
                 FileInfo fileInfo = new FileInfo(fileList[i]);
-                files.Add(new FilesRead(fileInfo.Name, fileInfo.FullName, fileInfo.Extension, lines.ToList()));
+                files.Add(new FilesRead(fileInfo, lines.ToList()));
+                
             }
             Console.ReadLine();
         }
@@ -133,6 +134,29 @@ namespace ClassFiles
                 }
             }
             return lines;
+        }
+        static void doubleCheck(List<FilesRead> files, out Dictionary<string, Output> output)
+        {
+            output = new Dictionary<string, Output>();
+            for (int i = 0; i < files.Count - 1; i++)
+            {
+                for (int j = 0; j < files[i].FileText.Count; j++)
+                {
+
+                    if (!output.ContainsKey(files[i].FileText[j].ToString()))
+                    {
+                        for (int k = 0; k < files[i + 1].FileText.Count; k++)
+                        {
+                            if (files[i].FileText[j] == files[i + 1].FileText[k])
+                            {
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
         }
     }
 }
