@@ -33,8 +33,8 @@ namespace ClassFiles
                 lines.Clear();
                 using(StreamReader sr = new StreamReader(fileList[i]))
                 {
-                   
                     
+
                 }
                 linecount = 1;
                 FileInfo fileInfo = new FileInfo(fileList[i]);
