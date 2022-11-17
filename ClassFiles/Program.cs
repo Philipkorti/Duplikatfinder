@@ -33,7 +33,18 @@ namespace ClassFiles
                 lines.Clear();
                 using(StreamReader sr = new StreamReader(fileList[i]))
                 {
-                    
+                    while (!sr.EndOfStream)
+                    {
+                        try
+                        {
+                            lines.Add(new Text(sr.ReadLine(), linecount));
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        linecount++;
+                    }
 
                 }
                 linecount = 1;
