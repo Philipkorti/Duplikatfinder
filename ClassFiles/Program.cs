@@ -55,7 +55,7 @@ namespace ClassFiles
                 }
 
                 FileInfo fileInfo = new FileInfo(fileList[i]);
-                //files.Add(new FilesRead(fileInfo.Name, fileInfo.FullName, fileInfo.Extension, lines.ToList()));
+                files.Add(new FilesRead(fileInfo.Name, fileInfo.FullName, fileInfo.Extension, lines.ToList()));
             }
             Console.ReadLine();
         }
