@@ -46,7 +46,9 @@
     <Compile Include="Classes\FilesRead.cs" />
     <Compile Include="Classes\Output.cs" />
     <Compile Include="Classes\Text.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
