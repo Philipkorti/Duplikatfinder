@@ -9,9 +9,16 @@ using ClassFiles.Classes;
 
 namespace ClassFiles
 {
+    /// <summary>
+    /// Represents the entry point
+    /// </summary>
     internal class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// This is the Main
+        /// </summary>
+        /// <param name="args">Args of Main</param>
+        private static void Main(string[] args)
         {
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\";
             List<string> fileList = new List<string>();
@@ -25,12 +32,11 @@ namespace ClassFiles
             {
                 fileList.AddRange(Directory.GetFiles(currentProjectPath, "*.cs", SearchOption.AllDirectories));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
             
-
             for (int i = 0; i < fileList.Count; i++)
             {
                 Console.WriteLine();
@@ -39,7 +45,7 @@ namespace ClassFiles
 
                 lines.Clear();
 
-                List<string> text = Lukas(fileList[i], ignorefile, out List<int> linecount);
+                List<string> text = IgnoreCode(fileList[i], ignorefile, out List<int> linecount);
 
                 for (int j = 0; j < text.Count(); j++)
                 {
@@ -56,15 +62,21 @@ namespace ClassFiles
 
                 FileInfo fileInfo = new FileInfo(fileList[i]);
                 files.Add(new FilesRead(fileInfo, lines.ToList()));
-                
             }
+
             Console.ReadLine();
         }
 
-        static string IgnoreFileCreate(string sCurrentDirectory)
+        /// <summary>
+        /// This method creates the ignore file and writes some lines into it if it does not exist
+        /// </summary>
+        /// <param name="currentDirectory">This is the current directory of the project</param>
+        /// <returns>
+        /// Returns the ignore file string
+        /// </returns>
+        private static string IgnoreFileCreate(string currentDirectory)
         {
-            
-            string ignorefile = Path.Combine(sCurrentDirectory, @"..\..\..\ignore.txt");
+            string ignorefile = Path.Combine(currentDirectory, @"ignore.txt");
             string ignorefilePath = Path.GetFullPath(ignorefile);
 
             if (!File.Exists(ignorefile))
@@ -80,21 +92,31 @@ namespace ClassFiles
                     sw.WriteLine("using file");
                 }
             }
+
             return ignorefile;
         }
 
-        static List<string> Lukas(string csFile, string ignorefile, out List<int> linecount)
+        /// <summary>
+        /// This method reads the lines from the cs file and compares them to the lines in the ignore file
+        /// </summary>
+        /// <param name="codeFile">the path of the code file</param>
+        /// <param name="ignorefile">the path of the ignore file</param>
+        /// <param name="linecount">a list of the line numbers</param>
+        /// <returns>
+        /// Returns a list with not ignored lines of code
+        /// </returns>
+        private static List<string> IgnoreCode(string codeFile, string ignorefile, out List<int> linecount)
         {
             List<string> lines = new List<string>();
             List<string> ignorelines = new List<string>();
             ignorelines.AddRange(File.ReadAllLines(ignorefile));
-            ignorelines.Remove("");
+            ignorelines.Remove(string.Empty);
             int count = 0;
             linecount = new List<int>();
 
             string codeline;
             bool goodline = true;
-            using (StreamReader reader = new StreamReader(csFile))
+            using (StreamReader reader = new StreamReader(codeFile))
             {
                 while (!reader.EndOfStream)
                 {
@@ -122,6 +144,7 @@ namespace ClassFiles
                             }
                         }
                     }
+
                     if (goodline)
                     {
                         if (codeline.Length != 0)
@@ -130,32 +153,37 @@ namespace ClassFiles
                             linecount.Add(count);
                         }
                     }
+
                     goodline = true;
                 }
             }
+
             return lines;
         }
-        static void doubleCheck(List<FilesRead> files, out Dictionary<string, Output> output)
+
+        /// <summary>
+        /// This method checks if there is a duplicate line
+        /// </summary>
+        /// <param name="files">A list of files</param>
+        /// <param name="output">The output</param>
+        private static void DoubleCheck(List<FilesRead> files, out Dictionary<string, Output> output)
         {
             output = new Dictionary<string, Output>();
             for (int i = 0; i < files.Count - 1; i++)
             {
                 for (int j = 0; j < files[i].FileText.Count; j++)
                 {
-
                     if (!output.ContainsKey(files[i].FileText[j].ToString()))
                     {
                         for (int k = 0; k < files[i + 1].FileText.Count; k++)
                         {
                             if (files[i].FileText[j] == files[i + 1].FileText[k])
                             {
-
+                                // missing
                             }
                         }
                     }
-
                 }
-
             }
         }
     }
