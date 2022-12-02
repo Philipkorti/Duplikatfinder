@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net.Http;
 using ClassFiles.Classes;
+using System.ComponentModel;
 
 namespace ClassFiles
 {
@@ -15,22 +16,28 @@ namespace ClassFiles
     internal class Program
     {
         /// <summary>
-        /// This is the Main
+        /// The main class contains all methods
         /// </summary>
         /// <param name="args">Args of Main</param>
         private static void Main(string[] args)
         {
-            string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\";
+            // temporary directory
+            string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory;
+
             List<string> fileList = new List<string>();
             List<FilesRead> files = new List<FilesRead>();
             List<Text> lines = new List<Text>();
             _ = new List<string>();
+            List<int> filelinecount = new List<int>();
 
-            string ignorefile = IgnoreFileCreate(currentProjectPath);
+            // temporary string for the file endings
+            string fileending = "*cs";
+
+            string ignorefile = CreateIgnoreFile(currentProjectPath);
 
             try
             {
-                fileList.AddRange(Directory.GetFiles(currentProjectPath, "*.cs", SearchOption.AllDirectories));
+                fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
             }
             catch (Exception ex)
             {
@@ -45,14 +52,15 @@ namespace ClassFiles
 
                 lines.Clear();
 
-                List<string> text = IgnoreCode(fileList[i], ignorefile, out List<int> linecount);
+                // writes all the lines that are not ignored into the text list
+                List<string> text = IgnoreCode(fileList[i], ignorefile, filelinecount);
 
                 for (int j = 0; j < text.Count(); j++)
                 {
                     try
                     {
-                        lines.Add(new Text(text[j], linecount[j]));
-                        Console.WriteLine("Line " + linecount[j] + ": " + text[j]);
+                        lines.Add(new Text(text[j], filelinecount[j]));
+                        Console.WriteLine("Line " + filelinecount[j] + ": " + text[j]);
                     }
                     catch (Exception ex)
                     {
@@ -74,7 +82,7 @@ namespace ClassFiles
         /// <returns>
         /// Returns the ignore file string
         /// </returns>
-        private static string IgnoreFileCreate(string currentDirectory)
+        private static string CreateIgnoreFile(string currentDirectory)
         {
             string ignorefile = Path.Combine(currentDirectory, @"ignore.txt");
             string ignorefilePath = Path.GetFullPath(ignorefile);
@@ -83,13 +91,7 @@ namespace ClassFiles
             {
                 using (StreamWriter sw = File.CreateText(ignorefilePath))
                 {
-                    sw.WriteLine("// * = removes line if this symbol is the only thing in the line");
-                    sw.WriteLine("*{");
-                    sw.WriteLine("*}");
-
-                    sw.WriteLine("// removes the line if the line contains this");
-                    sw.WriteLine("using system");
-                    sw.WriteLine("using file");
+                    WriteIntoIgnoreFile(sw);
                 }
             }
 
@@ -97,31 +99,46 @@ namespace ClassFiles
         }
 
         /// <summary>
+        /// This method writes these standard lines into the ignore file.
+        /// </summary>
+        /// <param name="sw">This is the stream writer.</param>
+        private static void WriteIntoIgnoreFile(StreamWriter sw)
+        {
+            sw.WriteLine("// * = removes line if this symbol is the only thing in the line");
+            sw.WriteLine("*{");
+            sw.WriteLine("*}");
+
+            sw.WriteLine("// removes the line if the line contains this");
+            sw.WriteLine("using system");
+            sw.WriteLine("using file");
+        }
+
+        /// <summary>
         /// This method reads the lines from the cs file and compares them to the lines in the ignore file
         /// </summary>
-        /// <param name="codeFile">the path of the code file</param>
+        /// <param name="file">the path of the code file</param>
         /// <param name="ignorefile">the path of the ignore file</param>
-        /// <param name="linecount">a list of the line numbers</param>
+        /// <param name="filelinecount">a list of the line numbers</param>
         /// <returns>
         /// Returns a list with not ignored lines of code
         /// </returns>
-        private static List<string> IgnoreCode(string codeFile, string ignorefile, out List<int> linecount)
+        private static List<string> IgnoreCode(string file, string ignorefile, List<int> filelinecount)
         {
             List<string> lines = new List<string>();
             List<string> ignorelines = new List<string>();
             ignorelines.AddRange(File.ReadAllLines(ignorefile));
             ignorelines.Remove(string.Empty);
             int count = 0;
-            linecount = new List<int>();
+            filelinecount = new List<int>();
 
-            string codeline;
+            string fileline;
             bool goodline = true;
-            using (StreamReader reader = new StreamReader(codeFile))
+            using (StreamReader reader = new StreamReader(file))
             {
                 while (!reader.EndOfStream)
                 {
                     count++;
-                    codeline = reader.ReadLine().TrimStart().TrimEnd().ToLower();
+                    fileline = reader.ReadLine().TrimStart().TrimEnd().ToLower();
 
                     for (int i = 0; i < ignorelines.Count(); i++)
                     {
@@ -129,7 +146,7 @@ namespace ClassFiles
 
                         if (ignorelines[i].StartsWith("*"))
                         {
-                            if (codeline == ignorelines[i].TrimStart().TrimEnd().Remove(0, 1))
+                            if (fileline == ignorelines[i].TrimStart().TrimEnd().Remove(0, 1))
                             {
                                 goodline = false;
                                 break;
@@ -137,7 +154,7 @@ namespace ClassFiles
                         }
                         else
                         {
-                            if (codeline.Contains(ignorelines[i]))
+                            if (fileline.Contains(ignorelines[i]))
                             {
                                 goodline = false;
                                 break;
@@ -147,10 +164,10 @@ namespace ClassFiles
 
                     if (goodline)
                     {
-                        if (codeline.Length != 0)
+                        if (fileline.Length != 0)
                         {
-                            lines.Add(codeline);
-                            linecount.Add(count);
+                            lines.Add(fileline);
+                            filelinecount.Add(count);
                         }
                     }
 
