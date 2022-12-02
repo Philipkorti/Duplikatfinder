@@ -13,3 +13,15 @@ C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\Clas
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.CoreCompileInputs.cache
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.exe
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.pdb
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.exe.config
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.exe
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.pdb
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.AssemblyReference.cache
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.SuggestedBindingRedirects.cache
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.CoreCompileInputs.cache
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.exe
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.pdb
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\log4net.dll
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\log4net.xml
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.CopyComplete
+C:\Users\phili\OneDrive - HTBLuVA Mödling\Schule\3.Klasse\1.Semester\POS\Beispiele\Duplikatfinder\ClassFiles\bin\Debug\log4net.config
