@@ -14,5 +14,9 @@
 2022-12-05 11:48:06,967 [1] INFO ClassFiles.Program - IgnoreFile Created!
 2022-12-05 11:49:41,323 [1] INFO ClassFiles.Program - IgnoreFile Created!
 2022-12-05 11:50:17,035 [1] INFO ClassFiles.Program - IgnoreFile Created!
+<<<<<<< HEAD
 2022-12-05 11:52:57,715 [1] INFO ClassFiles.Program - IgnoreFile Created!
 2022-12-05 12:03:28,218 [1] INFO ClassFiles.Program - IgnoreFile Created!
+=======
+2022-12-05 11:58:06,101 [1] INFO ClassFiles.Program - IgnoreFile Created!
+>>>>>>> bee9de7eb186b96430a41ebac4da60bcc260ac18
