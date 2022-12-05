@@ -25,9 +25,15 @@ namespace ClassFiles
             // temporary directory
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
-            // a list of all files
+            // a list of all filepaths of files with this fileending in this directory 
+            List<string> fileList = new List<string>();
+
+            // a list of all the files in the FileRead class format
+
             //List<string> fileList = new List<string>();
             List<FilesRead> files = new List<FilesRead>();
+
+            // list of filtered lines from the files
             List<Text> lines = new List<Text>();
 
             // temporary string for the file endings
@@ -35,18 +41,10 @@ namespace ClassFiles
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
             log.Info("IgnoreFile Created!");
-            //try
-            //{
-            //    fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
 
-            //neue Instanz von GetfileList
+            // neue Instanz von GetfileList
             GetFileList getfile = new GetFileList();
-            List<string> fileList = getfile.GetFileNames(currentProjectPath, fileending);
+            fileList = getfile.GetFileNames(currentProjectPath, fileending);
             
 
             for (int i = 0; i < fileList.Count; i++)
