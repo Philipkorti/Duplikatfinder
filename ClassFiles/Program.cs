@@ -25,18 +25,15 @@ namespace ClassFiles
             // temporary directory
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
-<<<<<<< HEAD
             // a list of all filepaths of files with this fileending in this directory 
             List<string> fileList = new List<string>();
 
             // a list of all the files in the FileRead class format
-=======
-            // a list of all files
+
             //List<string> fileList = new List<string>();
->>>>>>> 0e8daade92d9f903875fc495658ce8cb7f93703e
             List<FilesRead> files = new List<FilesRead>();
 
-            // 
+            // list of filtered lines from the files
             List<Text> lines = new List<Text>();
 
             // temporary string for the file endings
@@ -53,9 +50,9 @@ namespace ClassFiles
             //    Console.WriteLine(ex.Message);
             //}
 
-            //neue Instanz von GetfileList
+            // neue Instanz von GetfileList
             GetFileList getfile = new GetFileList();
-            List<string> fileList = getfile.GetFileNames(currentProjectPath, fileending);
+            fileList = getfile.GetFileNames(currentProjectPath, fileending);
             
 
             for (int i = 0; i < fileList.Count; i++)
