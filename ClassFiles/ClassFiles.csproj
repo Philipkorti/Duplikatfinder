@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FilesRead.cs" />
+    <Compile Include="Classes\GetFileList.cs" />
     <Compile Include="Classes\Output.cs" />
     <Compile Include="Classes\Text.cs" />
     <Compile Include="Program.cs">
