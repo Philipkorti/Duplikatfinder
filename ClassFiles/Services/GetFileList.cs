@@ -10,7 +10,7 @@ namespace ClassFiles.Classes
     public class GetFileList
     {
 
-        public List<string> GetFileNames(string fileending, string currentprpath)
+        public List<string> GetFileNames(string currentprpath, string fileending)
         {
 
             // a list of all files
