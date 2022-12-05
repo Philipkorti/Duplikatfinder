@@ -26,53 +26,14 @@ namespace ClassFiles
             // temporary directory
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
-            // a list of all filepaths of files with this fileending in this directory 
-            List<string> fileList = new List<string>();
-
-            // a list of all the files in the FileRead class format
-
-            //List<string> fileList = new List<string>();
-            List<FilesRead> files = new List<FilesRead>();
-
-            // list of filtered lines from the files
-            List<Text> lines = new List<Text>();
-
             // temporary string for the file endings
             string fileending = "*.cs";
 
             string ignorefile = IgnoreFile.CreateIgnoreFile(currentProjectPath);
 
-            // neue Instanz von GetfileList
-            fileList = GetFileList.GetFileNames(currentProjectPath, fileending);
-            
-
-            for (int i = 0; i < fileList.Count; i++)
-            {
-                Console.WriteLine();
-                Console.WriteLine("File: " + fileList[i]);
-                Console.WriteLine();
-
-                lines.Clear();
-
-                // writes all the lines that are not ignored into the text list
-                List<string> text = IgnoreFile.IgnoreLines(fileList[i], ignorefile, out List<int> filelinecount);
-
-                for (int j = 0; j < text.Count(); j++)
-                {
-                    try
-                    {
-                        lines.Add(new Text(text[j], filelinecount[j]));
-                        Console.WriteLine("Line " + filelinecount[j] + ": " + text[j]);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-
-                FileInfo fileInfo = new FileInfo(fileList[i]);
-                files.Add(new FilesRead(fileInfo, lines.ToList()));
-            }
+            //Get all files in the directory
+            GetFileList.GetFileNames(currentProjectPath, fileending, out List<string> fileList);
+            FilesAdd.Files(fileList, ignorefile, out List<FilesRead> files);
 
             Console.ReadLine();
         }

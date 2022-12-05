@@ -10,13 +10,20 @@ namespace ClassFiles.Classes
 {
     public class GetFileList
     {
-
-        public static List<string> GetFileNames(string currentprpath, string fileending)
+        /// <summary>
+        /// This method lod all files with the same file endigs.
+        /// </summary>
+        /// <param name="currentprpath"></param>
+        /// <param name="fileending"></param>
+        /// <returns></returns>
+        public static void GetFileNames(string currentprpath, string fileending, out List<string> fileList)
         {
 
-            // a list of all files
-            List<string> fileList = new List<string>();
-            foreach (var file in Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories))
+            // List os filepaths
+            fileList = new List<string>();
+
+            // Get all the filepaths and save it into the fileList list
+            foreach (string file in Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories))
             {
                 try
                 {
@@ -27,7 +34,6 @@ namespace ClassFiles.Classes
                     Program.log.Error($"The File {file} not load!");
                 }
             }
-            return fileList;
 
         }
 
