@@ -16,6 +16,7 @@ namespace ClassFiles.Classes
             
             List<string> fileList = new List<string>();
 
+
             try
             {
                 fileList.AddRange(Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories));
