@@ -26,7 +26,7 @@ namespace ClassFiles
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
             // a list of all files
-            List<string> fileList = new List<string>();
+            //List<string> fileList = new List<string>();
             List<FilesRead> files = new List<FilesRead>();
             List<Text> lines = new List<Text>();
 
@@ -35,15 +35,20 @@ namespace ClassFiles
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
             log.Info("IgnoreFile Created!");
-            try
-            {
-                fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //try
+            //{
+            //    fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //neue Instanz von GetfileList
+            GetFileList getfile = new GetFileList();
+            List<string> fileList = getfile.GetFileNames(currentProjectPath, fileending);
             
+
             for (int i = 0; i < fileList.Count; i++)
             {
                 Console.WriteLine();
