@@ -15,6 +15,7 @@ namespace ClassFiles
     /// </summary>
     internal class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// The main class contains all methods
         /// </summary>
@@ -34,7 +35,7 @@ namespace ClassFiles
             string fileending = "*.cs";
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
-
+            log.Info("IgnorFile Created!");
             try
             {
                 fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
