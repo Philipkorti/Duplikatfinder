@@ -42,7 +42,7 @@ namespace ClassFiles
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                log.Error(ex.Message);
             }
             
             for (int i = 0; i < fileList.Count; i++)
@@ -65,7 +65,7 @@ namespace ClassFiles
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        log.Error(ex.Message);
                     }
                 }
 
