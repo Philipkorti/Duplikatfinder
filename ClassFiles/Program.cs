@@ -41,14 +41,6 @@ namespace ClassFiles
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
             log.Info("IgnoreFile Created!");
-            //try
-            //{
-            //    fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
 
             // neue Instanz von GetfileList
             GetFileList getfile = new GetFileList();

@@ -13,7 +13,7 @@ namespace ClassFiles.Classes
         public List<string> GetFileNames(string fileending, string currentprpath)
         {
 
-            
+            // a list of all files
             List<string> fileList = new List<string>();
 
             try
