@@ -31,7 +31,7 @@ namespace ClassFiles
             List<int> filelinecount = new List<int>();
 
             // temporary string for the file endings
-            string fileending = "*cs";
+            string fileending = "*.cs";
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
 

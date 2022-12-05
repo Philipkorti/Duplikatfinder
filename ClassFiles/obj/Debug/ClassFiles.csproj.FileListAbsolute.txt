@@ -13,3 +13,11 @@ C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\Clas
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.CoreCompileInputs.cache
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.exe
 C:\Users\lukas\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.pdb
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.exe.config
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.exe
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\bin\Debug\ClassFiles.pdb
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.AssemblyReference.cache
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.SuggestedBindingRedirects.cache
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.csproj.CoreCompileInputs.cache
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.exe
+C:\Users\marti\OneDrive - HTBLuVA Mödling\Schule\5AAIFT\POS\Duplikatfinder\ClassFiles\obj\Debug\ClassFiles.pdb
