@@ -17,25 +17,24 @@ namespace ClassFiles
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
-        /// The main class contains all methods
+        /// This is the entry point to this project
         /// </summary>
-        /// <param name="args">Args of Main</param>
+        /// <param name="args">The arguments for main</param>
         private static void Main(string[] args)
         {
             // temporary directory
-            string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory;
+            string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
+            // a list of all files
             List<string> fileList = new List<string>();
             List<FilesRead> files = new List<FilesRead>();
             List<Text> lines = new List<Text>();
-            _ = new List<string>();
-            List<int> filelinecount = new List<int>();
 
             // temporary string for the file endings
             string fileending = "*.cs";
 
             string ignorefile = CreateIgnoreFile(currentProjectPath);
-            log.Info("IgnorFile Created!");
+            log.Info("IgnoreFile Created!");
             try
             {
                 fileList.AddRange(Directory.GetFiles(currentProjectPath, fileending, SearchOption.AllDirectories));
@@ -54,7 +53,7 @@ namespace ClassFiles
                 lines.Clear();
 
                 // writes all the lines that are not ignored into the text list
-                List<string> text = IgnoreCode(fileList[i], ignorefile, filelinecount);
+                List<string> text = IgnoreLines(fileList[i], ignorefile, out List<int> filelinecount);
 
                 for (int j = 0; j < text.Count(); j++)
                 {
@@ -123,7 +122,7 @@ namespace ClassFiles
         /// <returns>
         /// Returns a list with not ignored lines of code
         /// </returns>
-        private static List<string> IgnoreCode(string file, string ignorefile, List<int> filelinecount)
+        private static List<string> IgnoreLines(string file, string ignorefile,out List<int> filelinecount)
         {
             List<string> lines = new List<string>();
             List<string> ignorelines = new List<string>();
