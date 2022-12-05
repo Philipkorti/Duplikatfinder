@@ -15,7 +15,7 @@ namespace ClassFiles
     /// </summary>
     internal class Program
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        public static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// This is the entry point to this project
         /// </summary>
@@ -43,8 +43,7 @@ namespace ClassFiles
             log.Info("IgnoreFile Created!");
 
             // neue Instanz von GetfileList
-            GetFileList getfile = new GetFileList();
-            fileList = getfile.GetFileNames(currentProjectPath, fileending);
+            fileList = GetFileList.GetFileNames(currentProjectPath, fileending);
             
 
             for (int i = 0; i < fileList.Count; i++)
