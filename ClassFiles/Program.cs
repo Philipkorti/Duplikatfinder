@@ -96,6 +96,10 @@ namespace ClassFiles
                             if (files[i].FileText[j] == files[i + 1].FileText[k])
                             {
                                 // missing
+                                //List<int> a = new List<int>();
+                                //a.Add(files[i].FileText[j].LineNumber);
+                                Console.WriteLine("Linenumber (left): {0}", files[i].FileText[j].LineNumber);
+                                Console.WriteLine("Linenumber (right): {0}", files[i + 1].FileText[k].LineNumber);
                             }
                         }
                     }
