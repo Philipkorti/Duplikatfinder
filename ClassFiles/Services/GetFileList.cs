@@ -4,27 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Web.UI;
 
 namespace ClassFiles.Classes
 {
     public class GetFileList
     {
 
-        public List<string> GetFileNames(string currentprpath, string fileending)
+        public static List<string> GetFileNames(string currentprpath, string fileending)
         {
 
             // a list of all files
             List<string> fileList = new List<string>();
-
-            try
+            foreach (var file in Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories))
             {
-                fileList.AddRange(Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories));
+                try
+                {
+                    fileList.Add(file);
+                }
+                catch (Exception ex)
+                {
+                    Program.log.Error($"The File {file} not load!");
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
             return fileList;
 
         }

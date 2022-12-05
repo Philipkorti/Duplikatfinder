@@ -43,8 +43,7 @@ namespace ClassFiles
             string ignorefile = IgnoreFile.CreateIgnoreFile(currentProjectPath);
 
             // neue Instanz von GetfileList
-            GetFileList getfile = new GetFileList();
-            fileList = getfile.GetFileNames(currentProjectPath, fileending);
+            fileList = GetFileList.GetFileNames(currentProjectPath, fileending);
             
 
             for (int i = 0; i < fileList.Count; i++)
