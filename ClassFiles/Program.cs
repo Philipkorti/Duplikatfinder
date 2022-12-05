@@ -25,9 +25,13 @@ namespace ClassFiles
             // temporary directory
             string currentProjectPath = AppDomain.CurrentDomain.BaseDirectory + @"\\..\\..";
 
-            // a list of all files
+            // a list of all filepaths of files with this fileending in this directory 
             List<string> fileList = new List<string>();
+
+            // a list of all the files in the FileRead class format
             List<FilesRead> files = new List<FilesRead>();
+
+            // 
             List<Text> lines = new List<Text>();
 
             // temporary string for the file endings
