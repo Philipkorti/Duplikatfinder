@@ -19,19 +19,15 @@ namespace ClassFiles.Services
             output = new Dictionary<string, Output>();
             for (int i = 0; i < files.Count - 1; i++)
             {
-                for (int j = 0; j < files[i].FileText.Count; j++)
+                foreach (var t in files[i].FileText)
                 {
-                    if (!output.ContainsKey(files[i].FileText[j].ToString()))
+                    if (!output.ContainsKey(t.ToString()))
                     {
                         for (int k = 0; k < files[i + 1].FileText.Count; k++)
                         {
-                            if (files[i].FileText[j] == files[i + 1].FileText[k])
+                            if (t == files[i + 1].FileText[k])
                             {
-                                // missing
-                                //List<int> a = new List<int>();
-                                //a.Add(files[i].FileText[j].LineNumber);
-                                Console.WriteLine("Linenumber (left): {0}", files[i].FileText[j].LineNumber);
-                                Console.WriteLine("Linenumber (right): {0}", files[i + 1].FileText[k].LineNumber);
+
                             }
                         }
                     }

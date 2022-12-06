@@ -35,8 +35,6 @@ namespace ClassFiles
             GetFileList.GetFileNames(currentProjectPath, fileending, out List<string> fileList);
             FilesAdd.Files(fileList, ignorefile, out List<FilesRead> files);
 
-            Console.ReadLine();
-
             DuplicateCheck.DoubleCheck(files, out Dictionary<string, Output> output);
             Console.ReadLine();
         }
