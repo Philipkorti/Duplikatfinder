@@ -23,17 +23,25 @@ namespace ClassFiles.Classes
             fileList = new List<string>();
 
             // Get all the filepaths and save it into the fileList list
-            foreach (string file in Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories))
+            try
             {
-                try
+                foreach (string file in Directory.GetFiles(currentprpath, fileending, SearchOption.AllDirectories))
                 {
-                    fileList.Add(file);
-                }
-                catch (Exception ex)
-                {
-                    Program.log.Error($"The File {file} not load!");
+                    try
+                    {
+                        fileList.Add(file);
+                    }
+                    catch (Exception ex)
+                    {
+                        Program.log.Error($"The File {file} not load!");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Program.log.Error("The File path is not correct");
+            }
+            
 
         }
 
