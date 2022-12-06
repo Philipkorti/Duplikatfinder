@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FilesRead.cs" />
+    <Compile Include="Services\DuplicateCheck.cs" />
     <Compile Include="Services\FilesAdd.cs" />
     <Compile Include="Services\GetFileList.cs" />
     <Compile Include="Classes\Output.cs" />
