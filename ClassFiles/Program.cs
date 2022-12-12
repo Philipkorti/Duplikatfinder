@@ -7,6 +7,7 @@ using System.IO;
 using System.Net.Http;
 using ClassFiles.Classes;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using ClassFiles.Services;
 
 namespace ClassFiles
@@ -36,6 +37,19 @@ namespace ClassFiles
             FilesAdd.Files(fileList, ignorefile, out List<FilesRead> files);
 
             DuplicateCheck.DoubleCheck(files, out Dictionary<string, Output> output);
+            foreach (KeyValuePair<string, Output> VARIABLE in output)
+            {
+                Console.WriteLine("Line: " + VARIABLE.Key);
+                Console.WriteLine("Duplicate: "+VARIABLE.Value.Duplicatenumber);
+                for (int i = 0; i < VARIABLE.Value.FileName.Count; i++)
+                {
+                    Console.WriteLine("FileName: "+ VARIABLE.Value.FileName[i].Name);
+                    Console.WriteLine("Linenumber: "+VARIABLE.Value.LineNumber[i]);
+                }
+
+                Console.WriteLine("---------------------");
+                Console.WriteLine();
+            }
             Console.ReadLine();
         }
     }

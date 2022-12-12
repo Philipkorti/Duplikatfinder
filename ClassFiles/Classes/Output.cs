@@ -51,6 +51,11 @@ namespace ClassFiles.Classes
             this.Duplicatenumber = duplicatenumber;
         }
 
+        public void GetUPDuplicate()
+        {
+            Duplicatenumber++;
+        }
+
         #endregion
     }
 }
