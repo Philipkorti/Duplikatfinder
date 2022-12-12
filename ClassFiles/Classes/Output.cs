@@ -53,7 +53,7 @@ namespace ClassFiles.Classes
 
         public void GetUPDuplicate()
         {
-            Duplicatenumber++;
+            duplicatenumber++;
         }
 
         #endregion
