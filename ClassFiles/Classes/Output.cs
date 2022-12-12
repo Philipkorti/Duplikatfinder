@@ -32,7 +32,7 @@ namespace ClassFiles.Classes
             set { lineNumber = value; }
         }
 
-        public List<string> FileName
+        public List<FileInfo> FileName
         {
             get { return fileName; }
 
@@ -44,7 +44,7 @@ namespace ClassFiles.Classes
 
         #region ------ Constructor ------
 
-        public Output(List<string> fileName, int duplicatenumber, List<int> lineNumbers)
+        public Output(List<FileInfo> fileName, int duplicatenumber, List<int> lineNumbers)
         {
             this.LineNumber = lineNumbers;
             this.FileName = fileName;
